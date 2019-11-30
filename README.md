@@ -1,7 +1,7 @@
 ### Installed on this package:
 
 * Ubuntu Linux 18.04
-* Dokcer
+* Docker
 * Python
 * Node.js
 
