@@ -71,10 +71,6 @@ Vagrant.configure("2") do |config|
     apt-get update
     apt-get -y upgrade 
     mkdir /vagrant/lab
-    cd ~
-    echo "alias LAB='cd /vagrant/lab'" >> .bashrc
-    source .bashrc
-    git config --global alias.hist log --oneline --graph --decorate --all
 
   # Docker
     echo "Installing Docker"
@@ -109,5 +105,11 @@ Vagrant.configure("2") do |config|
     node -v 
     npm -v 
 
-  SHELL
+  # Post init
+    cd ~
+    echo "alias LAB='cd /vagrant/lab'" >> .bashrc
+    source .bashrc
+    git config --global alias.hist log --oneline --graph --decorate --all
+
+    SHELL
 end
