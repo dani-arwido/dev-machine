@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
     cd ~
     echo "alias LAB='cd /vagrant/lab'" >> .bashrc
     source .bashrc
-    git config --global alias.hist "log --oneline --graph --decorate --all"
+    git config --global alias.hist log --oneline --graph --decorate --all
 
   # Docker
     echo "Installing Docker"
