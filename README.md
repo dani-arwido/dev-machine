@@ -5,6 +5,6 @@
 * Python
 * Node.js
 
-### Prerequisite
+### Prerequisite: run this command first
     vagrant plugin install vagrant-disksize
     vagrant plugin install vagrant-vbguest

@@ -66,14 +66,22 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
+  config.vm.provision "file", source: ".gitconfig", destination: "/home/vagrant/.gitconfig"
   config.vm.provision "shell", inline: <<-SHELL
-  # Init
+  # Init -- Must
     apt-get update
     apt-get -y upgrade 
     mkdir /vagrant/lab
 
-  # Docker
-    echo "Installing Docker"
+    # Docker -- Optional
+    echo "                        
+      ##          #           
+      # # ### ### # # ### ### 
+      # # # # #   ##  ##  #   
+      # # ### ### # # ### #   
+      ##                      
+    "
+
     sudo apt-get -y install \
       apt-transport-https \
       ca-certificates \
@@ -93,23 +101,36 @@ Vagrant.configure("2") do |config|
     sudo apt-get -y install docker-ce docker-ce-cli containerd.io
     sudo docker run hello-world
 
-  # Python
+  # Python -- Optional
+    echo "
+      ##       #  #           
+      # # # # ### ### ### ##  
+      ##  ###  #  # # # # # # 
+      #     #  ## # # ### # # 
+      #   ###                 
+    "
     sudo apt install -y python3-pip
     sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
     sudo apt install -y python3-venv
 
-  # Node.js
+  # Node.js -- Optional
+    echo "
+      ###       #          #      
+      # # ### ### ###          ## 
+      # # # # # # ##       #   #  
+      # # ### ### ###      #  ##  
+      # #              #  #       
+    "
     sudo apt-get -y install curl
     curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     sudo apt-get -y install nodejs
     node -v 
     npm -v 
 
-  # Post init
+  # Post init -- Must
     cd ~
-    echo "alias LAB='cd /vagrant/lab'" >> .bashrc
-    source .bashrc
-    git config --global alias.hist log --oneline --graph --decorate --all
+    echo "alias LAB='cd /vagrant/lab'" >> /home/vagrant/.bashrc
+    source /home/vagrant/.bashrc
 
     SHELL
 end
