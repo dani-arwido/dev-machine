@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = false
     vb.name = "dev-machine"
-  
+
     # Customize the amount of memory on the VM:
     vb.memory = 4096
     vb.cpus = 2
@@ -70,16 +70,16 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
   # Init -- Must
     apt-get update
-    apt-get -y upgrade 
+    apt-get -y upgrade
     mkdir /vagrant/lab
 
     # Docker -- Optional
-    echo "                        
-      ##          #           
-      # # ### ### # # ### ### 
-      # # # # #   ##  ##  #   
-      # # ### ### # # ### #   
-      ##                      
+    echo "
+      ##          #
+      # # ### ### # # ### ###
+      # # # # #   ##  ##  #
+      # # ### ### # # ### #
+      ##
     "
 
     sudo apt-get -y install \
@@ -103,11 +103,11 @@ Vagrant.configure("2") do |config|
 
   # Python -- Optional
     echo "
-      ##       #  #           
-      # # # # ### ### ### ##  
-      ##  ###  #  # # # # # # 
-      #     #  ## # # ### # # 
-      #   ###                 
+      ##       #  #
+      # # # # ### ### ### ##
+      ##  ###  #  # # # # # #
+      #     #  ## # # ### # #
+      #   ###
     "
     sudo apt install -y python3-pip
     sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
@@ -115,17 +115,17 @@ Vagrant.configure("2") do |config|
 
   # Node.js -- Optional
     echo "
-      ###       #          #      
-      # # ### ### ###          ## 
-      # # # # # # ##       #   #  
-      # # ### ### ###      #  ##  
-      # #              #  #       
+      ###       #          #
+      # # ### ### ###          ##
+      # # # # # # ##       #   #
+      # # ### ### ###      #  ##
+      # #              #  #
     "
     sudo apt-get -y install curl
     curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
     sudo apt-get -y install nodejs
-    node -v 
-    npm -v 
+    node -v
+    npm -v
 
   # Post init -- Must
     cd ~
