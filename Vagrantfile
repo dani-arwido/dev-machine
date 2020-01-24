@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/bionic64"
-  config.disksize.size = '50GB'
+  config.disksize.size = "50GB"
+  config.vm.hostname = "dev-machine"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -127,9 +128,23 @@ Vagrant.configure("2") do |config|
     node -v
     npm -v
 
+  # MongoDB -- Optional
+    echo "
+
+      # #                 ##  ##
+      ### ### ##  ### ### # # # #
+      ### # # # # # # # # # # ##
+      # # ### # #  ## ### # # # #
+      # #         ###     ##  ##
+    "
+
+    sudo apt install -y mongodb
+
+
   # Post init -- Must
     cd ~
-    echo "alias LAB='cd /vagrant/lab'" >> /home/vagrant/.bashrc
+    mkdir /home/vagrant/lab
+    echo "alias LAB='cd /home/vagrant/lab'" >> /home/vagrant/.bashrc
     source /home/vagrant/.bashrc
 
     SHELL
