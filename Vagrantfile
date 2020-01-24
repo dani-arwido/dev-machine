@@ -72,7 +72,6 @@ Vagrant.configure("2") do |config|
   # Init -- Must
     apt-get update
     apt-get -y upgrade
-    mkdir /vagrant/lab
 
     # Docker -- Optional
     echo "
